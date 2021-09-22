@@ -2054,3 +2054,5 @@ spring.cloud.stream.bindings.process-out-0.destination: <your-output-topic-name>
 spring.cloud.stream.kafka.streams.binder.functions.process.applicationId: streams-03
 ```
 After that, add and configure a `Consumer` of the output topic. Materialize this topic with unique name, and provide endpoint for that.
+
+(Optionally) You can back to the `order-query-service` and rewrite implementation using Kafka Streams.
