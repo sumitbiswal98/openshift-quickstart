@@ -64,7 +64,11 @@ git version 2.24.3 (Apple Git-128)
 
 Clone the following repository from GitHub:
 ```shell
-git clone https://github.com/piomin/sample-quarkus-serverless-kafka.git
+git clone https://github.com/piomin/openshift-quickstart.git
+```
+Switch to the `serverless` branch:
+```shell
+git checkout serverless
 ```
 Go to the `serverless` directory. There three applications there: `order-saga`, `payment-saga`, and `shipment-saga`:
 ```shell
@@ -73,7 +77,9 @@ cd serverless
 
 ## 3. Kafka support
 
-First, go to the `order-saga` directory. \ 
+This part (step 3) is developed locally without Openshift and Knative. \
+You just need to have access to the Kafka cluster running locally or e.g. on [Red Hat Hybrid Cloud](https://cloud.redhat.com/). In order to login to the Red Hat Hybrid Cloud you will have to create account there (it is free). \
+First, go to the `order-saga` directory. \
 Add the following dependency into Maven `pom.xml`:
 ```xml
 <dependency>
@@ -130,7 +136,7 @@ public class OrderDeserializer extends ObjectMapperDeserializer<Order> {
 
 }
 ```
-Go to the `pl.redhat.samples.serverless.payment.service.OderConsumer` and add the following implementation:
+Go to the `pl.redhat.samples.serverless.payment.service.OrderConsumer` and add the following implementation:
 ```java
 @ApplicationScoped
 public class OrderConsumer {
@@ -362,11 +368,15 @@ Then apply the changes:
 oc apply -f kafka-topic.yaml
 
 ```
-Switch to the `shipment-saga` module. Once again add the following dependency into Maven `pom.xml`:
+Switch to the `shipment-saga` module. Once again add the following dependencies into Maven `pom.xml`:
 ```xml
 <dependency>
     <groupId>io.quarkus</groupId>
     <artifactId>quarkus-funqy-http</artifactId>
+</dependency>
+<dependency>
+    <groupId>io.quarkus</groupId>
+    <artifactId>quarkus-smallrye-reactive-messaging-kafka</artifactId>
 </dependency>
 ```
 Open the file `pl.redhat.samples.serverless.shipment.function.OrderReserveFunction`. \
