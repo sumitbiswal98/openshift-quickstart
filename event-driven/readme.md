@@ -670,7 +670,7 @@ List all the applications created with `odo`:
 ```shell
 odo list
 ```
-Check Kafka bootstrap server address:
+Check Kafka bootstrap server address. We will use Kafka with name `my-cluster-kafka-bootstrap`:
 ```shell
 oc get svc -n kafka | grep kafka-bootstrap
 ```
