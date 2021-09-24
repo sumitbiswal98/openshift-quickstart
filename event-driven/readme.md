@@ -1098,7 +1098,7 @@ Go to the `pl.redhat.samples.eventdriven.payment.service.PaymentService`. Add th
 ```java
 public OrderEvent reserveBalance(OrderCommand orderCommand) {
     Account account = accountRepository.findByCustomerId(orderCommand.getCustomerId()).stream().findFirst().orElseThrow();
-    account.setReservedAmount(product.getReservedAmount() - orderCommand.getAmount());
+    account.setReservedAmount(account.getReservedAmount() - orderCommand.getAmount());
     accountRepository.save(account);
     return new OrderEvent(orderCommand.getId(), "RESERVATION", "OK");
 }
