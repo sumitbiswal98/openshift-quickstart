@@ -676,7 +676,7 @@ oc get svc -n kafka | grep kafka-bootstrap
 ```
 Replace it in the `producer` `application.yml`:
 ```yaml
-spring.kafka.bootstrap-servers=<kafka-bootstrap-service-name>.kafka:9092
+spring.kafka.bootstrap-servers: <kafka-bootstrap-service-name>.kafka:9092
 ```
 Ensure you have the following properties commented out for now:
 ```properties
