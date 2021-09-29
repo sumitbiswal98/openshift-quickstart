@@ -453,10 +453,7 @@ public Supplier<CallmeEvent> eventSupplier() {
 }
 ```
 Delete the topic (auto-create option is enabled) or switch to your instance of Kafka. \
-Then switch to the `consumer` application. Add the following property in your `application.yml`:
-```yaml
-spring.cloud.stream.bindings.eventConsumer-in-0.consumer.batch-mode: true
-```
+Then switch to the `consumer` application. \
 The consumer should receive a `List` of records instead of a single record. Replace the existing implementation of a consumer with the following:
 ```java
 @Bean
