@@ -100,6 +100,10 @@ In order to create own instance of Apache Kafka there. Try login to https://clou
 
 ## 2. Create the producer with Spring Cloud Stream
 
+Go to the `event-driven` directory, and then to the `producer` directory:
+```shell
+cd event-driven/producer
+```
 Add the following dependency to Maven `pom.xml`:
 ```xml
 <dependency>
