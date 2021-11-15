@@ -1276,7 +1276,7 @@ public void confirmBalance(ConfirmCommand confirmCommand) {
 ```
 Add the `Consumer` bean and set the right destination in `application.yml`. Remember about multiple Spring Cloud Function beans defined. \
 Don't forget to add some using existing 'Logger'. \
-Then deploy all the three services `payment-service`, `shipment-service`, `order-service` on OpenShift cluster using`odo`. \
+Then deploy all the three services `payment-service`, `shipment-service`, `order-service` on OpenShift cluster using`odo` or just run them locally if connecting with Kafka outside OpenShift. \
 Observe logs of all three applications:
 ```shell
 odo log -f
