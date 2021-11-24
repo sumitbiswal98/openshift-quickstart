@@ -11,7 +11,7 @@ public class PersonRouteBuilder extends RouteBuilder {
 
     @Override
     public void configure() throws Exception {
-
+        
         restConfiguration()
                 .contextPath("/camel")
                 .apiContextPath("/v3/api-docs")
